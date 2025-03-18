@@ -29,8 +29,8 @@ class SWRequester(APIRequester):
         return categories.keys()
 
     def get_sw_info(self, sw_type):
-        self.bind_url = self.base_url + '/' + sw_type + '/'
-        response = requests.get(self.bind_url)
+        self.url = self.base_url + '/' + sw_type + '/'
+        response = requests.get(self.url)
         return response.text
 
 
