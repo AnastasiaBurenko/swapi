@@ -6,10 +6,10 @@ class APIRequester:
     def __init__(self, base_url):
         self.base_url = base_url
 
-    def get(self, endpoint="", params=None):
+    def get(self, endpoint=""):
         try:
             url = f'{self.base_url}{endpoint}'
-            response = requests.get(url, params=params)
+            response = requests.get(url)
             response.raise_for_status()
             return response
         except requests.exceptions.RequestException as e:
@@ -18,7 +18,7 @@ class APIRequester:
 
 
 class SWRequester(APIRequester):
-    def __init__(self, base_url="https://swapi.dev/api/"):
+    def __init__(self, base_url='https://swapi.dev/api/'):
         super().__init__(base_url)
 
     def get_sw_categories(self):
